@@ -1,13 +1,13 @@
 ;(function () {
 	var selfInterval = 16;
-	var requestAnimFrame = window.requestAnimationFrame       ||
-                       	   window.webkitRequestAnimationFrame ||
-                           window.mozRequestAnimationFrame    ||
-                       	   window.msRequestAnimationFrame     ||
-                           window.oRequestAnimationFrame      ||
-                           function (callback) {
-                              setTimeout(callback, selfInterval);
-                           };
+	var requestAnimFrame = window.requestAnimationFrame    ||
+                       	window.webkitRequestAnimationFrame ||
+                        window.mozRequestAnimationFrame    ||
+                       	window.msRequestAnimationFrame     ||
+                        window.oRequestAnimationFrame      ||
+                        function (callback) {
+                            setTimeout(callback, selfInterval);
+                        };
     window.requestAnimationFrame = requestAnimFrame;
 })();
 
@@ -24,7 +24,7 @@
 			}, options);
 			var _this = this[0];
 
-			var length = isNaN(options.length) ? parseInt(options.length) * parseInt(this.css("font-size")) : options.length;
+			var length = isNaN(options.length) ? parseFloat(options.length) * parseFloat(this.css("font-size")) : options.length;
 			var radian = options.angle * Math.PI / 180;		
 			var c = document.createElement("canvas");
 			c.width = length * Math.cos(radian) + options.lineWidth * Math.sin(radian);
